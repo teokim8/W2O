@@ -1,0 +1,47 @@
+﻿Accessory,Muffler,10,-40,6,Muffler,
+Accessory,Gloves,6,-40,0,Gloves,
+Accessory,Balaclava,12,-40,-2,Balaclava,
+Accessory,Scarf,0,-40,40,Scarf,
+Accessory,Sunglasses,0,-40,40,Sunglasses,
+Accessory,Cap,0,-40,40,Cap,
+Accessory,Bucket Hat,0,-40,40,Bucket Hat,
+Accessory,Umbrella,0,-40,40,Umbrella,
+Outer,Blazer,18,0,20,Overshirt,Yes
+Outer,Hardshell,25,-5,22,Hardshell,
+Outer,Denim Jacket,26,10,20,Denim Jacket,
+Outer,Puffer Vest,32,-10,14,Puffer Vest,
+Outer,Trench Coat,38,0,18,Trench Coat,
+Outer,Quilted Jacket,45,-5,12,Light Down,Yes
+Outer,Leather Jacket,49,0,15,Leather Jacket,
+Outer,Cropped Bomber,49,0,15,Baseball Jacket,Yes
+Outer,Wool Coat,56,no lower bound,8,Wool Coat,
+Outer,Down Parka,113,no lower bound,5,Down Parka,
+Top,Tank Top,3,22,48,Tank Top,
+Top,Linen Blouse,5,20,46,Linen Shirt,Yes
+Top,Basic Tee,6,10,46,Basic Tee,
+Top,Cotton Top,6,10,46,Polo Shirt,Yes
+Top,Long Sleeve,14,no lower bound,22,Long Sleeve,
+Top,Casual Blouse,17,no lower bound,25,Casual Shirt,Yes
+Top,Sweatshirt,23,no lower bound,22,Sweatshirt,
+Top,Cardigan,23,no lower bound,20,Cardigan,
+Top,Hoodie,24,no lower bound,22,Hoodie,
+Top,Knit Sweater,28,no lower bound,18,Knit Sweater,
+Top,Fleece,30,no lower bound,15,Fleece,
+Top,Turtleneck,34,no lower bound,12,Turtleneck,
+Top,Chunky Knit,41,no lower bound,10,Heavy Knit,Yes
+Bottom,Sport Shorts,3,24,48,Sport Shorts,
+Bottom,Shorts,5,22,46,Shorts,
+Bottom,Linen Trousers,7,20,44,Linen Pants,Yes
+Bottom,Tailored Pants,11,10,28,Slacks,Yes
+Bottom,Jeans,14,0,25,Jeans,
+Bottom,Midi Skirt,17,0,20,Corduroy,Yes
+Bottom,Joggers,19,-5,18,Sweatpants,Yes
+Bottom,Fleece Leggings,22,no lower bound,12,Fleece Leggings,
+Bottom,Wool Skirt,26,no lower bound,10,Wool Trousers,Yes
+Bottom,Down Pants,40,no lower bound,5,Down Pants,
+Footwear,Sandals,2,24,48,Sandals,
+Footwear,Sneakers,4,no lower bound,46,Sneakers,
+Footwear,Loafers,4,no lower bound,35,Loafers,
+Footwear,Chelsea Boots,6,no lower bound,18,Chelsea Boots,
+Footwear,Ankle Boots,6,no lower bound,15,Leather Boots,Yes
+Footwear,Winter Boots,10,no lower bound,5,Winter Boots,
