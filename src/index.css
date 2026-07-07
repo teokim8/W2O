@@ -60,6 +60,13 @@ body {
   }
 }
 
+/* PWA standalone mode — add bottom breathing room (no browser chrome) */
+@media (display-mode: standalone) and (max-width: 640px) {
+  .phone {
+    height: calc(100dvh - max(env(safe-area-inset-bottom), 20px));
+  }
+}
+
 /* Info panel — desktop only (≥900px)
  * ─── 직접 조정 가능한 값 ───────────────────────────────
  *   패널 너비          : --ip-width      (현재 300px)
