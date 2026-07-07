@@ -71,8 +71,6 @@ export default function App() {
   const [angle, setAngle] = useState(0);
   const [infoHover, setInfoHover] = useState(false);
   const [infoLocked, setInfoLocked] = useState(false);
-  const [showDialHint, setShowDialHint] = useState(true);
-  useEffect(() => { const t = setTimeout(() => setShowDialHint(false), 2400); return () => clearTimeout(t); }, []);
   const cur = useRef(0); const committed = useRef(0); const raf = useRef(0);
   const drag = useRef({ active: false, startX: 0, dx: 0 });
   const setBoth = (v: number) => { cur.current = v; setAngle(v); };
@@ -81,6 +79,22 @@ export default function App() {
   const { deck } = useMemo(() => buildDeck(temp, flags, getCatalog(gender)), [temp, condition, gender]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { setShown(0); setVisible(true); }, [temp, condition, gender]);
   useEffect(() => () => cancelAnimationFrame(raf.current), []);
+
+  // First-load demo: swing the dial right then left and settle back to neutral,
+  // so first-time users see how it works before touching it. Purely visual —
+  // only animates `angle`, never touches `committed` or the outfit deck.
+  useEffect(() => {
+    const steps = [DETENT, -DETENT, 0];
+    let idx = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    function playNext() {
+      if (drag.current.active || idx >= steps.length) return;
+      animateTo(steps[idx++]);
+      timer = setTimeout(playNext, 420);
+    }
+    timer = setTimeout(playNext, 300);
+    return () => clearTimeout(timer);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const total = deck.length;
   function go(step: number) {
@@ -366,23 +380,7 @@ export default function App() {
             </div>
           </div>
 
-          <div style={{ height: 108, flexShrink: 0, display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
-            {showDialHint && (
-              <>
-                <div className="dial-hint dial-hint--left" aria-hidden="true">
-                  <svg width="36" height="56" viewBox="0 0 36 56" fill="none">
-                    <path d="M 30 52 C 14 52 4 44 4 28 C 4 12 8 6 8 6" stroke="#1e1e1e" strokeWidth="5.5" strokeLinecap="round"/>
-                    <path d="M 1 16 L 8 2 L 15 16" stroke="#1e1e1e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="dial-hint dial-hint--right" aria-hidden="true">
-                  <svg width="36" height="56" viewBox="0 0 36 56" fill="none">
-                    <path d="M 6 52 C 22 52 32 44 32 28 C 32 12 28 6 28 6" stroke="#1e1e1e" strokeWidth="5.5" strokeLinecap="round"/>
-                    <path d="M 35 16 L 28 2 L 21 16" stroke="#1e1e1e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </>
-            )}
+          <div style={{ height: 108, flexShrink: 0, display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
               style={{ position: "relative", width: 230, height: 100, touchAction: "none", cursor: "grab", userSelect: "none" }}>
               {Array.from({ length: TICK_N }).map((_, k) => {

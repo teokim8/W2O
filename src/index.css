@@ -212,25 +212,6 @@ body {
 .setrange::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #FF2D2D; cursor: pointer; }
 .setrange::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #FF2D2D; border: none; cursor: pointer; }
 
-/* Dial hint arrows — first-load UX guide, fade out after ~2s */
-@keyframes dial-hint-bob {
-  0%   { opacity: 0;   transform: translateY(0); }
-  10%  { opacity: 1;   transform: translateY(0); }
-  30%  { opacity: 1;   transform: translateY(-10px); }
-  50%  { opacity: 1;   transform: translateY(0); }
-  70%  { opacity: 1;   transform: translateY(-10px); }
-  85%  { opacity: 1;   transform: translateY(0); }
-  100% { opacity: 0;   transform: translateY(0); }
-}
-.dial-hint {
-  position: absolute;
-  top: calc(50% - 28px);
-  pointer-events: none;
-  animation: dial-hint-bob 2.2s ease-in-out forwards;
-}
-.dial-hint--left  { right: calc(50% + 115px + 14px); }
-.dial-hint--right { left:  calc(50% + 115px + 14px); }
-
 /* Location search */
 .locsearch { caret-color: #fff; }
 .locsearch::placeholder { color: #8a8a8a; }
